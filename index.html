@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Color</title>
+    <meta name="description"
+        content="A fast-paced color memory game with difficulty levels, trick mode, combos, and more!">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =========== MENU SCREEN =========== -->
+    <div class="screen" id="screen-menu">
+        <div class="menu-card glass">
+            <h1 class="logo">🎨 Guess the Color</h1>
+            <p class="subtitle">How fast is your eye?</p>
+
+            <div class="stats-bar">
+                <div class="stat-chip">🏆 Best: <span id="menu-highscore">0</span></div>
+                <div class="stat-chip">🎯 Accuracy: <span id="menu-accuracy">0%</span></div>
+            </div>
+
+            <div class="section-label">Difficulty</div>
+            <div class="pill-group" id="difficulty-group">
+                <button class="pill active" data-val="easy">😊 Easy</button>
+                <button class="pill" data-val="medium">😤 Medium</button>
+                <button class="pill" data-val="hard">🔥 Hard</button>
+            </div>
+
+            <div class="section-label">Mode</div>
+            <div class="pill-group" id="mode-group">
+                <button class="pill active" data-val="normal">Normal</button>
+                <button class="pill" data-val="trick">🤯 Trick Mode</button>
+            </div>
+
+            <div class="toggle-row">
+                <span>🔊 Sound Effects</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="sound-toggle" checked>
+                    <span class="slider-track"></span>
+                </label>
+            </div>
+
+            <button class="btn-primary" id="btn-start">Start Game</button>
+        </div>
+    </div>
+
+    <!-- =========== GAME SCREEN =========== -->
+    <div class="screen hidden" id="screen-game">
+        <div class="game-wrapper">
+
+            <!-- Header -->
+            <header class="game-header">
+                <div class="header-left">
+                    <div class="score-chip">⭐ <span id="score">0</span></div>
+                    <div class="combo-chip hidden" id="combo-chip">🔥 x<span id="combo-count">1</span></div>
+                </div>
+                <div class="header-center">
+                    <div class="timer-ring-wrap">
+                        <svg class="timer-ring" viewBox="0 0 44 44">
+                            <circle class="ring-bg" cx="22" cy="22" r="18" />
+                            <circle class="ring-progress" id="ring-progress" cx="22" cy="22" r="18" />
+                        </svg>
+                        <span class="timer-num" id="timer-num">5</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="stat-mini">🎯<span id="accuracy-live">100%</span></div>
+                    <button class="btn-icon" id="btn-restart" title="Restart">↺</button>
+                </div>
+            </header>
+
+            <!-- Mode tag -->
+            <div class="mode-tag" id="mode-tag"></div>
+
+            <!-- Card -->
+            <div class="card glass" id="game-card">
+                <div class="word-wrap">
+                    <div class="word-display" id="word-display">Ready?</div>
+                </div>
+                <div class="feedback-row">
+                    <p class="msg-main" id="msg-main">Press start to play</p>
+                    <p class="msg-motivation" id="msg-motivation"></p>
+                </div>
+            </div>
+
+            <!-- Options -->
+            <div class="options-grid" id="options-grid"></div>
+
+        </div>
+    </div>
+
+    <!-- =========== RESULT SCREEN =========== -->
+    <div class="screen hidden" id="screen-result">
+        <div class="result-card glass">
+            <div class="result-icon" id="result-icon">🎉</div>
+            <h2 id="result-title">Game Over!</h2>
+            <p class="result-sub" id="result-sub">Keep practising!</p>
+
+            <div class="result-stats">
+                <div class="result-stat"><span class="rs-label">Score</span><span class="rs-val" id="rs-score">0</span>
+                </div>
+                <div class="result-stat"><span class="rs-label">Best</span><span class="rs-val" id="rs-best">0</span>
+                </div>
+                <div class="result-stat"><span class="rs-label">Accuracy</span><span class="rs-val"
+                        id="rs-accuracy">0%</span></div>
+                <div class="result-stat"><span class="rs-label">Max Combo</span><span class="rs-val"
+                        id="rs-combo">0</span></div>
+            </div>
+
+            <div class="result-btns">
+                <button class="btn-primary" id="btn-play-again">▶ Play Again</button>
+                <button class="btn-secondary" id="btn-menu">Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
